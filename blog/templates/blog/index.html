@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Moj Blog
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/post.css" %}" />
+<link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static "blog/images/FB_IMG_1678778627704.jpg" %}" alt="Ignacy - autor bloga" />
+        <h2>Blog Ignacego</h2>
+    </header>
+    <p>Czesc, nazywam sie Ignacy i chcialbym wam opowiedziec o mojej gorskiej przygodzie</p>
+
+</section>
+
+<section id="latest-posts">
+    <h2>Ostatnie wpisy</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about" >
+    <h2>O mnie </h2>
+    <p>
+        Uwielbiam chodzic po gorach oraz uczyc sie programowac :)
+    </p>
+
+</section>
+{% endblock %}
